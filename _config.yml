@@ -314,7 +314,7 @@ tagcloud:
   enable: true
   min: 12    # 最小字号(px)
   max: 30    # 最大字号(px)
-  amount: 80 # 显示标签数量上限
+  amount: 123 # 显示标签数量上限
   algorithm: "log"
 
 # Google Calendar
