@@ -1,0 +1,55 @@
+// 修改站点主标题样式
+.site-title {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #000;  // 背景色保持黑色
+  color: #fff !important;
+  border-radius: 15px;     // 圆角大小
+  font-size: 20px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #333; // 悬停背景色
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+}
+
+// 修改副标题样式（可选）
+.site-subtitle {
+  margin-top: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+// 阅读更多按钮容器
+.post-button {
+  margin-top: 30px;
+  text-align: center;
+
+  // 按钮本体
+  a {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #000 !important;  // 背景色保持黑色
+    color: #fff !important;
+    border-radius: 25px;                // 圆角大小（越大越圆）
+    font-size: 14px;
+    text-decoration: none !important;
+    transition: all 0.3s;
+
+    // 悬停效果
+    &:hover {
+      background-color: #333 !important;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    // 右侧箭头（可选）
+    &::after {
+      content: "→";
+      margin-left: 8px;
+      font-weight: bold;
+    }
+  }
+}
