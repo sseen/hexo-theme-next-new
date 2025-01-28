@@ -15,6 +15,13 @@
   }
 }
 
+.brand {
+  padding: 8px 20px;
+  border-radius: 15px;     // 圆角大小
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
 // 修改副标题样式（可选）
 .site-subtitle {
   margin-top: 10px;
@@ -26,6 +33,10 @@
 .post-button {
   margin-top: 30px;
   text-align: center;
+
+  btn {
+    border-radius: 5px;
+  }
 
   // 按钮本体
   a {
@@ -53,3 +64,193 @@
     }
   }
 }
+
+/* =========================================
+ * 1) Markdown 基础样式 
+ *    用 .post-body 替换原先的 .markdown-preview
+ * ========================================= */
+.post-body
+  code
+    border-radius 2px
+    color #e96900
+    font-size 0.8rem
+    margin 0 2px
+    padding 3px 5px
+    white-space pre-wrap
+    background-color #f8f8f8
+    font-family 'Roboto Mono', Monaco, courier, monospace
+
+  pre
+    -moz-osx-font-smoothing initial
+    -webkit-font-smoothing initial
+    line-height 1.5rem
+    margin 1.2em 0
+    overflow auto
+    padding 0 1.4rem
+    position relative
+    word-wrap normal
+    background-color #f8f8f8
+    font-family 'Roboto Mono', Monaco, courier, monospace
+
+
+/* =========================================
+ * 2) Prism Token Styles (代码高亮)
+ *    如果你没用 Prism，请改成对应的类名
+ * ========================================= */
+.token
+  &.cdata,
+  &.comment,
+  &.doctype,
+  &.prolog
+    color #8e908c
+
+  &.namespace
+    opacity 0.7
+
+  &.boolean,
+  &.number
+    color #c76b29
+
+  &.punctuation
+    color #525252
+
+  &.property
+    color #c08b30
+
+  &.tag
+    color #2973b7
+
+  /* Stylus 下使用 CSS 变量需用 unquote() 包裹，否则可能报错 */
+  &.string
+    color unquote("var(--theme-color, #42b983)")
+
+  &.selector
+    color #6679cc
+
+  &.attr-name
+    color #2973b7
+
+  &.entity,
+  &.url,
+  .language-css .token.string,
+  .style .token.string
+    color #22a2c9
+
+  &.attr-value,
+  &.control,
+  &.directive,
+  &.unit
+    color unquote("var(--theme-color, #42b983)")
+
+  &.keyword
+    color #e96900
+
+  &.atrule,
+  &.regex,
+  &.statement
+    color #22a2c9
+
+  &.placeholder,
+  &.variable
+    color #3d8fd1
+
+  &.deleted
+    text-decoration line-through
+
+  &.inserted
+    border-bottom 1px dotted #202746
+    text-decoration none
+
+  &.italic
+    font-style italic
+
+  &.bold,
+  &.important
+    font-weight 700
+
+  &.important
+    color #c94922
+
+  &.entity
+    cursor help
+
+
+/* =========================================
+ * 3) 代码块特殊样式
+ * ========================================= */
+.post-body
+  pre > code,
+  pre[class*="language"]
+    -moz-osx-font-smoothing initial
+    -webkit-font-smoothing initial
+    background-color #f8f8f8
+    border-radius 2px
+    color #525252
+    display block
+    font-family 'Roboto Mono', Monaco, courier, monospace
+    font-size 0.8rem
+    line-height 2em
+    max-width inherit
+    overflow inherit
+    padding 0.8em 1.4em
+    white-space pre
+
+  pre > code
+    padding-left 0
+    padding-right 0
+
+  code:before,
+  code:after
+    letter-spacing 0.05rem
+
+
+/* =========================================
+ * 4) 行号高亮 (Prism Line Highlight插件)
+ *    如果你没用 Prism 的行号插件可省略
+ * ========================================= */
+.post-body
+  pre[data-line]
+    position relative
+    padding 1em 0 1em 3em !important
+
+    .line-highlight-wrapper
+      position absolute
+      top 0
+      left 0
+      background-color transparent
+      display block
+      width 100%
+
+    .line-highlight
+      position absolute
+      left 0
+      right 0
+      margin-top 1em
+      background hsla(24, 20%, 50%, 0.08)
+      background linear-gradient(to right, hsla(24, 20%, 50%, 0.1) 70%, hsla(24, 20%, 50%, 0))
+      pointer-events none
+      line-height inherit
+      white-space pre
+
+      &:before,
+      &[data-end]:after
+        content attr(data-start)
+        position absolute
+        top 0.4em
+        left 0.6em
+        min-width 1em
+        padding 0 0.5em
+        background-color hsla(24, 20%, 50%, 0.4)
+        color #f4f1ef
+        font bold 65%/1.5 sans-serif
+        text-align center
+        vertical-align 0.3em
+        border-radius 999px
+        text-shadow none
+        box-shadow 0 1px #fff
+
+      &[data-end]:after
+        content attr(data-end)
+        top auto
+        bottom 0.4em
+
