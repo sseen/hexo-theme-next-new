@@ -15,10 +15,18 @@
     {%- endif %}
 
     <a href="{{ config.root }}" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <{% if is_home() or is_archive() %}h1{% else %}p{% endif %} class="site-title">{{ title }}</{% if is_home() or is_archive() %}h1{% else %}p{% endif %}>
-      <i class="logo-line"></i>
-    </a>
+  <div class="innerClipped">
+    <div class="background"></div>
+    <div class="fill"></div>
+    <div class="mask"></div>
+    <div class="shadow"></div>
+    <div class="light"></div>
+    <div class="gloss"></div>
+    <div class="text">{{title}} </div>
+  </div>
+  <div class="corner"></div>
+</a>
+
     {%- if subtitle %}
       <p class="site-subtitle" itemprop="description">{{ subtitle }}</p>
     {%- endif %}
